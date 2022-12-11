@@ -1,4 +1,4 @@
-package Models;
+package models;
 
 public class Vacina { //Atributos classe Vacina
 	private int id;
@@ -18,6 +18,10 @@ public class Vacina { //Atributos classe Vacina
 	this.local = local;
 	this.lote = lote;
 	this.doses = doses;
+ }
+ 
+ public Vacina() {
+	 
  }
  
  //getters e setters dos atributos da classe Vacina
@@ -80,7 +84,8 @@ public String getLote() {
  @Override
  
  public String toString() { // toString para imprimir os dados da vacina
-	 return "Tipo da vacina: " + tipoVacina + ", data de fabricação da vacina: " + dataVacina + ", data da dose: " + dataDose + 
-			 ", local: " + local + ", lote da vacina: " + lote + ", numero de doses: " + doses;
+	 return "VACINA\n"
+	 		+ "Tipo da vacina: " + tipoVacina + ", data de fabricacao da vacina: " + dataVacina + ", data da dose: " + dataDose + 
+			 ", local: " + local + ", lote da vacina: " + lote + ", numero de doses: " + doses + "\n";
  }
 }

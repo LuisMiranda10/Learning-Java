@@ -1,4 +1,4 @@
-package Models;
+package models;
 
 public abstract class Animal { //Atributos classe Animal
 	private int id;
@@ -33,11 +33,10 @@ public abstract class Animal { //Atributos classe Animal
 		this.altura = altura;
 	}
 	
-	//Classe super 
-	public Animal(){
-		super();
+	public Animal() {
+		
 	}
-	 
+	
 	//getters e setters para os atributos da classe Animal
 	public int getId() {
 		return id;
@@ -103,10 +102,9 @@ public abstract class Animal { //Atributos classe Animal
 		this.altura = altura;
 	}
 	
-	@Override
-	
 	public String toString() { // toString para imprimir os dados do animal
-		return "O animal " + nome + " é um(a) " + especie + " de gênero " + genero + ", da raça "+ raca + " com porte de " + altura 
+		return "ANIMAL\n"
+				+ "O animal " + nome + " é um(a) " + especie + " de gênero " + genero + ", da raça "+ raca + " com porte de " + altura 
 				+ " de altura e peso de " + peso + " com " + idade + " anos de idade."; 
 	}
 	

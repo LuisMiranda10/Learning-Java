@@ -1,4 +1,4 @@
-package Models;
+package models;
 
 public class Dono {     //Atributos da classe Animal
 	private int id;
@@ -7,17 +7,19 @@ public class Dono {     //Atributos da classe Animal
 	private String endereco;
 	private String telefone;
 	private String genero;
-	private String dataNascimento;
 	
 	 //Construtor
-	public Dono (int id, String nome, int idade, String endereco, String telefone, String genero, String dataNascimento, int cpf) {  
+	public Dono (int id, String nome, int idade, String endereco, String telefone, String genero) {  
 		this.id = id;
 		this.nome = nome;
 		this.idade = idade;
 		this.endereco = endereco;
 		this.telefone = telefone;
 		this.genero =  genero;
-		this.dataNascimento = dataNascimento;
+	}
+	
+	public Dono() {
+		
 	}
 	
 	//getters e setters dos atributos da classe Dono
@@ -69,13 +71,9 @@ public class Dono {     //Atributos da classe Animal
 		this.genero = genero;
 	}
 	
-	public String getDataNascimento() {
-		return dataNascimento;
+	public String toString() {
+		return "DONO\n"
+				+ "Nome: " + nome + ", idade: " + idade + ", endereco: " + endereco + ", telefone: " + telefone 
+				+ ", genero: " + genero + "\n";
 	}
-	
-	public void setDataNascimento(String dataNascimento) {
-		this.dataNascimento = dataNascimento;
-	}
-	
-	
 }

@@ -1,4 +1,6 @@
-package Models;
+package models;
+
+import java.lang.StringBuilder;
 
 public class CartaoVacina {
 	private String nomeDono;
@@ -8,13 +10,34 @@ public class CartaoVacina {
 	private int animalId;
 	private Vacina[] vacina; 
 	
-	public CartaoVacina(String nomeDono, String nomeAnimal, Vacina[] vacina) {
+	public CartaoVacina(String nomeDono, String nomeAnimal, String especie, String raca, int animalId, 
+	Vacina[] vacina) {
+		this.nomeDono = nomeDono;
+		this.nomeAnimal = nomeAnimal;
+		this.especie = especie;
+		this.raca = raca;
+		this.animalId = animalId;
 		this.vacina = vacina;
 	}
 	
-	/*public String toString() {
-	 * return
-	}*/
+	@Override
+
+	public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("CARTAO DE VACINACAO\n");
+        sb.append("Nome do Dono: " + getNomeDono() + "\n");
+        sb.append("Nome do Animal: " + getNomeAnimal() + "\n");
+        sb.append("Especie: " + getEspecie() + "\tRaca:"+ getRaca() +"\n");
+        for (int i = 0; i < vacina.length; i++) {
+            sb.append("Vacina: " + vacina[i].getTipoVacina() + "\tData: " + vacina[i].getDataDose() + "\n");
+        }
+        return sb.toString();
+    }
+
+
+	public CartaoVacina () {
+		
+	}
 
 	public String getNomeDono() {
 		return nomeDono;
