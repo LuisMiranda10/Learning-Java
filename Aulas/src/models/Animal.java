@@ -102,10 +102,10 @@ public abstract class Animal { //Atributos classe Animal
 		this.altura = altura;
 	}
 	
-	public String toString() { // toString para imprimir os dados do animal
+	/*public String toString() { // toString para imprimir os dados do animal
 		return "ANIMAL\n"
 				+ "O animal " + nome + " é um(a) " + especie + " de gênero " + genero + ", da raça "+ raca + " com porte de " + altura 
 				+ " de altura e peso de " + peso + " com " + idade + " anos de idade."; 
-	}
+	}*/
 	
 }

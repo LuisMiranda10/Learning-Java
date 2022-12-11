@@ -71,7 +71,7 @@ public class Dono {     //Atributos da classe Animal
 		this.genero = genero;
 	}
 	
-	public String toString() {
+	public String toString() {//Imprimir os dados de Vacina
 		return "DONO\n"
 				+ "Nome: " + nome + ", idade: " + idade + ", endereco: " + endereco + ", telefone: " + telefone 
 				+ ", genero: " + genero + "\n";

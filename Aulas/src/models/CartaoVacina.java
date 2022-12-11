@@ -19,8 +19,6 @@ public class CartaoVacina {
 		this.animalId = animalId;
 		this.vacina = vacina;
 	}
-	
-	@Override
 
 	public String toString() {
         StringBuilder sb = new StringBuilder();
