@@ -27,7 +27,7 @@ public class TelaLogin implements ActionListener{
 		tela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
 		
 		String generos[] = {"Macho", "Fêmea", "Indefinido"};
-		String especies[] = { "Canina", "Felina", "Coelho"};
+		String especies[] = { "Canina", "Felina", "Roedor"};
 		String porte[] = {"Alto", "Médio", "Baixo"};
 		
 		listaGenero = new JComboBox(generos);
@@ -109,14 +109,11 @@ public class TelaLogin implements ActionListener{
 	}
 	
 	public void actionPerformed(ActionEvent ae) { 
-		if ("adicionarAnimal" == ae.getActionCommand()) {
+		if ("Adicionar Pet" == ae.getActionCommand()) {
             //new Tela();
             tela.dispose();
          }
-		
 	}
-	
-	
 	
 	
 	public static void main(String[] a) { 

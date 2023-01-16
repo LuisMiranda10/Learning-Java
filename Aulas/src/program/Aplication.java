@@ -42,7 +42,7 @@ public class Aplication {
 		gato.setPelagem("curta");
 		
 		coelho.setNome("Coelhito");
-		coelho.setEspecie("Leoporideos");
+		coelho.setEspecie("Roedor");
 		coelho.setIdade(8);
 		coelho.setRaca("coelhin-da-Pascóa");
 		coelho.setGenero("Feminino");
