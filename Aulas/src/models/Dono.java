@@ -1,21 +1,13 @@
 package models;
 
 public class Dono {     //Atributos da classe Animal
-	private int id;
 	private String nome;
 	private int idade;
-	private String endereco;
-	private String telefone;
-	private String genero;
 	
 	 //Construtor
-	public Dono (int id, String nome, int idade, String endereco, String telefone, String genero) {  
-		this.id = id;
+	public Dono (String nome, int idade) {  
 		this.nome = nome;
 		this.idade = idade;
-		this.endereco = endereco;
-		this.telefone = telefone;
-		this.genero =  genero;
 	}
 	
 	public Dono() {
@@ -23,13 +15,6 @@ public class Dono {     //Atributos da classe Animal
 	}
 	
 	//getters e setters dos atributos da classe Dono
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
 
 	public String getNome() {
 		return nome;
@@ -47,33 +32,9 @@ public class Dono {     //Atributos da classe Animal
 		this.idade = idade;
 	}
 	
-	public String getEndereco() {
-		return endereco;
-	}
-	
-	public void setEndereco(String endereco) {
-		this.endereco = endereco;
-	}
-	
-	public String getTelefone() {
-		return telefone;
-	}
-	
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
-	}
-	
-	public String getGenero() {
-		return genero;
-	}
-	
-	public void setGenero(String genero) {
-		this.genero = genero;
-	}
 	
 	public String toString() {//Imprimir os dados de Vacina
 		return "DONO\n"
-				+ "Nome: " + nome + ", idade: " + idade + ", endereco: " + endereco + ", telefone: " + telefone 
-				+ ", genero: " + genero + "\n";
+				+ "Nome: " + nome + ", idade: " + idade + "\n";
 	}
 }

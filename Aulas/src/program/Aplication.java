@@ -7,42 +7,47 @@ public class Aplication {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Dono dono = new Dono();
-		Mamifero mamifero = new Mamifero();
+		Cachorro cachorro = new Cachorro();
+		Coelho coelho = new Coelho();
 		Vacina vacina = new Vacina();
-		Ave ave = new Ave();
+		Gato gato = new Gato();
 		Vacina vacina1[] = new Vacina[] {null};
 		vacina1[0] = new Vacina(1, "Astrazenica", null, "13/12/2022", null, null , 1); 
 		CartaoVacina cartaoVacina = new CartaoVacina(null, null, null, null, 1, vacina1);
 		
 		System.out.println(dono);
-		System.out.println(mamifero);
-		System.out.println(ave);
+		System.out.println(cachorro);
+		System.out.println(gato);
+		System.out.println(coelho);
 		System.out.println(vacina);
 		System.out.println(cartaoVacina);
 	
 		dono.setNome("Bruno");
 		dono.setIdade(20);
-		dono.setGenero("masculino");
-		dono.setEndereco("Terceira avenida, Nucleo Bandeirante, casa F");
-		dono.setTelefone("(61) 99976-4960");
 		
-		mamifero.setNome("Zezin");
-		mamifero.setEspecie("Canina");
-		mamifero.setIdade(25);
-		mamifero.setRaca("Pinscher");
-		mamifero.setPeso(6.5);
-		mamifero.setGenero("Masculino");
-		mamifero.setAltura(20.6);
-		mamifero.setCastrado(false);
+		cachorro.setNome("Zezin");
+		cachorro.setEspecie("Canina");
+		cachorro.setIdade(25);
+		cachorro.setRaca("Pinscher");
+		cachorro.setGenero("Masculino");
+		cachorro.setAltura("Alto");
+		cachorro.setCastrado(false);
 		
-		ave.setNome("Avezinha");
-		ave.setEspecie("ave");
-		ave.setIdade(8);
-		ave.setRaca("calopsita");
-		ave.setPeso(7);
-		ave.setGenero("Feminino");
-		ave.setAltura(30);
-		ave.setAsaCortada(false);
+		gato.setNome("Miazinha");
+		gato.setEspecie("felina");
+		gato.setIdade(8);
+		gato.setRaca("gato-de-bengala");
+		gato.setGenero("Feminino");
+		gato.setAltura("Baixo");
+		gato.setPelagem("curta");
+		
+		coelho.setNome("Coelhito");
+		coelho.setEspecie("Leoporideos");
+		coelho.setIdade(8);
+		coelho.setRaca("coelhin-da-Pascóa");
+		coelho.setGenero("Feminino");
+		coelho.setAltura("Medio");
+		coelho.setSituacaoDosDentes("otima");
 		
 		vacina.setTipoVacina("Astrazenica");
 		vacina.setDataVacina("09/12/2022");
@@ -58,8 +63,9 @@ public class Aplication {
 		cartaoVacina.setVacina(vacina1);
 		
 		System.out.println(dono);
-		System.out.println(mamifero);
-		System.out.println(ave);
+		System.out.println(cachorro);
+		System.out.println(gato);
+		System.out.println(coelho);
 		System.out.println(vacina);
 		System.out.println(cartaoVacina);
 

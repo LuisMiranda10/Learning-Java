@@ -7,7 +7,6 @@ public class CartaoVacina {
 	private String nomeAnimal;
 	private String especie;
 	private String raca; 
-	private int animalId;
 	private Vacina[] vacina; 
 	
 	public CartaoVacina(String nomeDono, String nomeAnimal, String especie, String raca, int animalId, 
@@ -16,7 +15,6 @@ public class CartaoVacina {
 		this.nomeAnimal = nomeAnimal;
 		this.especie = especie;
 		this.raca = raca;
-		this.animalId = animalId;
 		this.vacina = vacina;
 	}
 
@@ -67,14 +65,6 @@ public class CartaoVacina {
 
 	public void setRaca(String raca) {
 		this.raca = raca;
-	}
-
-	public int getAnimalId() {
-		return animalId;
-	}
-
-	public void setAnimalId(int animalId) {
-		this.animalId = animalId;
 	}
 
 	public Vacina[] getVacina() {

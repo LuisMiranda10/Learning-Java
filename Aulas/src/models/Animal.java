@@ -1,18 +1,15 @@
 package models;
 
 public abstract class Animal { //Atributos classe Animal
-	private int id;
 	private String nome;
 	private String especie;
 	private String raca;
 	private String genero;
 	private int idade;
-	private double peso;
-	private double altura;
+	private String altura;
 	
 	/**
 	 * Construtor Animal.
-	 * @param id
 	 * @param nome
 	 * @param especie
 	 * @param raca
@@ -22,14 +19,12 @@ public abstract class Animal { //Atributos classe Animal
 	 * @param altura    
 	 */
 	
-	public Animal(int id, String nome, String especie, String raca, String genero, int idade, double peso, double altura) { 
-		this.id = id;
+	public Animal(String nome, String especie, String raca, String genero, int idade, String altura) { 
 		this.nome = nome;
 		this.especie = especie;
 		this.raca = raca;
 		this.genero = genero;
 		this.idade = idade;
-		this.peso = peso;
 		this.altura = altura;
 	}
 	
@@ -38,13 +33,6 @@ public abstract class Animal { //Atributos classe Animal
 	}
 	
 	//getters e setters para os atributos da classe Animal
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
 	
 	public String getNome() {
 		return nome;
@@ -86,26 +74,18 @@ public abstract class Animal { //Atributos classe Animal
 		this.idade = idade;
 	}
 	
-	public double getPeso() {
-		return peso;
-	}
-	
-	public void setPeso(double peso) {
-		this.peso = peso;
-	}
-	
-	public double getAltura() {
+	public String getAltura() {
 		return altura;
 	}
 	
-	public void setAltura(double altura) {
+	public void setAltura(String altura) {
 		this.altura = altura;
 	}
 	
 	/*public String toString() { // toString para imprimir os dados do animal
 		return "ANIMAL\n"
 				+ "O animal " + nome + " é um(a) " + especie + " de gênero " + genero + ", da raça "+ raca + " com porte de " + altura 
-				+ " de altura e peso de " + peso + " com " + idade + " anos de idade."; 
+				+ " de altura e" + " com " + idade + " anos de idade."; 
 	}*/
 	
 }
