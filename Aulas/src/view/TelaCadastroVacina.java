@@ -18,86 +18,113 @@ public class TelaCadastroVacina implements ActionListener{
 	private static JComboBox listaDoses;
 	private static JButton adicionarVacina;
 	
+	String doses[] = {"1", "2", "3", "Mais de 3"};
 	
-	
-	public TelaCadastroVacina() {
+	TelaCadastroVacina() {
 		tela = new JFrame("Cadastro de Vacinas!"); 
-		tela.setSize(1100, 700);
+		tela.setSize(660, 800);
 		tela.setLayout(null); 
 		tela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
-		
-		String doses[] = {"1", "2", "3", "Mais de 3"};
-		
-		listaDoses = new JComboBox(doses);
-		
-		TextoTipoVacina = new JTextField();
-		TextoDataVacina = new JTextField();
-		TextoDataDose = new JTextField();
-		TextoLocal = new JTextField();
-		TextoLote = new JTextField();
-		
+		tela.pack();
+		tela.setExtendedState(JFrame.MAXIMIZED_BOTH);
+		tela.setVisible(true); 
+	
+		titulo();
+		tipoVacina();
+		dataVacina();
+		dataDose();
+		local();
+		lote();
+		doses();
+		btnAdicionarVacina();
+	}
+	
+	public void titulo() {
 		jlabTitulo = new JLabel("CADASTRO DE VACINA");
-		jlabTipoVacina = new JLabel("Tipo da vacina: ");
-		jlabDataVacina = new JLabel("Data da vacina: ");
-		jlabDataDose = new JLabel("Data dose: ");
-		jlabLocal = new JLabel("Local da vacina: ");
-		jlabLote = new JLabel("Lote da vacina: ");
-		jlabDoses = new JLabel("Número de doses: ");
-		
-		adicionarVacina = new JButton("Adicionar Vacina");
-		
 		jlabTitulo.setBounds(545, 185, 400, 30);
-
+		
+		tela.add(jlabTitulo);
+	}
+	
+	public void tipoVacina() {
+		TextoTipoVacina = new JTextField();
+		jlabTipoVacina = new JLabel("Tipo da vacina: ");
+		
 		TextoTipoVacina.setBounds(560, 250, 200, 30);
 		jlabTipoVacina.setBounds(460, 250, 100, 30);
-	   
+		
+		tela.add(jlabTipoVacina);
+		tela.add(TextoTipoVacina);
+	}
+	
+	public void dataVacina() {
+		TextoDataVacina = new JTextField();
+		jlabDataVacina = new JLabel("Data da vacina: ");
+		
 		TextoDataVacina.setBounds(560, 300, 100, 30);
 	    jlabDataVacina.setBounds(460, 300, 100, 30);
 	    
+	    tela.add(jlabDataVacina); 
+	    tela.add(TextoDataVacina);      
+	}
+	
+	public void dataDose() {
+		TextoDataDose = new JTextField();
+		jlabDataDose = new JLabel("Data dose: ");
+		
 		TextoDataDose.setBounds(560, 350, 200, 30);
 		jlabDataDose.setBounds(460, 350, 150, 30);
+		
+		tela.add(jlabDataDose); 
+		tela.add(TextoDataDose);
+	}
+	
+	public void local() {
+		TextoLocal = new JTextField();
+		jlabLocal = new JLabel("Local da vacina: ");
 		
 		TextoLocal.setBounds(560, 400, 200, 30);
 		jlabLocal.setBounds(460, 400, 110, 30);
 		
+		tela.add(jlabLocal);
+		tela.add(TextoLocal);
+	}
+	
+	public void lote() {
+		TextoLote = new JTextField();
+		jlabLote = new JLabel("Lote da vacina: ");
+		
 		TextoLote.setBounds(560, 450, 200, 30);
 		jlabLote.setBounds(460, 450, 150, 30);
+		
+		tela.add(jlabLote);
+		tela.add(TextoLote);
+	}
+	
+	public void doses() {
+		listaDoses = new JComboBox<>(doses);
+		jlabDoses = new JLabel("Número de doses: ");
 		
 		listaDoses.setBounds(570,500, 190, 30);
 		jlabDoses.setBounds(460, 500, 150, 30);
 		
-		adicionarVacina.setBounds(520, 580, 200, 40);
-		
-		tela.add(jlabTitulo);
-		tela.add(jlabTipoVacina); 
-		tela.add(jlabDataVacina); 
-		tela.add(jlabDataDose); 
-		tela.add(jlabLocal);
-		tela.add(jlabLote);
 		tela.add(jlabDoses);
-		
-		tela.add(TextoTipoVacina);  
-		tela.add(TextoDataVacina);    
-		tela.add(TextoDataDose);
-		tela.add(TextoLocal);
-		tela.add(TextoLote);
-		tela.add(listaDoses);	
-		
-		tela.add(adicionarVacina);
-		
+		tela.add(listaDoses);
+	}
+	
+	public void btnAdicionarVacina() {
+		adicionarVacina = new JButton("Adicionar Vacina");
+		adicionarVacina.setBounds(520, 580, 200, 40);
+	
 		adicionarVacina.setActionCommand("Adicionar Vacina");
         adicionarVacina.addActionListener(this);
 		
-		tela.pack();
-		tela.setExtendedState(JFrame.MAXIMIZED_BOTH);
-		tela.setVisible(true); 
+		tela.add(adicionarVacina);
 	}
-	
-	
 	
 	public void actionPerformed(ActionEvent ae) {
 		if ("Adicionar Vacina" == ae.getActionCommand()) {
-            //new Tela();
+            new TelaListaAnimais();
             tela.dispose();
          }
 	}

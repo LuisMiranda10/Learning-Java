@@ -6,51 +6,61 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 
-import view.TelaLogin.*;
+import view.TelaCadastro.*;
 
 public class TelaInicial implements ActionListener{
 	private static JFrame tela;
-	private static JButton cadastrarPet, buscarPet;
+	private static JButton btnCadastrarPet, btnBuscarPet;
 	private static JLabel jlabTitulo;
 
 	
 	
-	public TelaInicial() {
+	TelaInicial() {
 		tela = new JFrame("Tela Inicial!"); 
-		tela.setSize(1100, 700);;
+		tela.setSize(660, 800);
 		tela.setLayout(null); 
 		tela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
-		
-		cadastrarPet = new JButton("Cadastrar Pet");
-		buscarPet = new JButton("Buscar Pet");
-		
-		jlabTitulo = new JLabel("TELA INICIAL");
-		
-		jlabTitulo.setBounds(565, 250, 200, 30);
-		
-		cadastrarPet.setBounds(500, 350, 200, 30);
-		buscarPet.setBounds(500, 420, 200, 30);
-		
-		cadastrarPet.addActionListener(this); 
-		buscarPet.addActionListener(this); 
-		
-		cadastrarPet.setActionCommand("Cadastrar Pet");
-		buscarPet.setActionCommand("Buscar Pet");
-		
-		tela.add(jlabTitulo);
-		tela.add(cadastrarPet);
-		tela.add(buscarPet);
-		
 		tela.pack();
 		tela.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		tela.setVisible(true);
 		
+		titulo();
+		cadastrarPet();
+		buscarPet();
+		
 	}
 	
+	    public void titulo() {
+		jlabTitulo = new JLabel("TELA INICIAL");
+		jlabTitulo.setBounds(565, 250, 200, 30);
+		
+		tela.add(jlabTitulo);
+	    }
+		
+	
+	    public void cadastrarPet() {
+			btnCadastrarPet = new JButton("Cadastrar Pet");
+			btnCadastrarPet.setBounds(500, 350, 200, 30);
+			
+			btnCadastrarPet.addActionListener(this);
+			btnCadastrarPet.setActionCommand("Cadastrar Pet");
+			
+			tela.add(btnCadastrarPet);
+		}
+		
+	    public void buscarPet() {
+	    	btnBuscarPet = new JButton("Buscar Pet");
+			btnBuscarPet.setBounds(500, 420, 200, 30);
+			 
+			btnBuscarPet.addActionListener(this); 
+			btnBuscarPet.setActionCommand("Buscar Pet");
+			
+			tela.add(btnBuscarPet);			
+	    }
 	
 	public void actionPerformed(ActionEvent ae) {
 		if ("Cadastrar Pet" == ae.getActionCommand()) {
-            new TelaLogin();
+            new TelaCadastro();
             tela.dispose();
          }else if
         	("Buscar Pet" == ae.getActionCommand()){
@@ -60,7 +70,7 @@ public class TelaInicial implements ActionListener{
 	}
 	
 	public static void main(String[] a) { 
-		TelaInicial telaInicial = new TelaInicial();		
+		new TelaInicial();		
 	}
 
 }
