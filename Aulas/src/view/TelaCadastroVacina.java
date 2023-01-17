@@ -2,6 +2,8 @@ package view;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -16,9 +18,11 @@ public class TelaCadastroVacina implements ActionListener{
 	private static JComboBox listaDoses;
 	private static JButton adicionarVacina;
 	
+	
+	
 	public TelaCadastroVacina() {
 		tela = new JFrame("Cadastro de Vacinas!"); 
-		tela.setSize(1100, 700);;
+		tela.setSize(1100, 700);
 		tela.setLayout(null); 
 		tela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
 		
@@ -47,7 +51,7 @@ public class TelaCadastroVacina implements ActionListener{
 		TextoTipoVacina.setBounds(560, 250, 200, 30);
 		jlabTipoVacina.setBounds(460, 250, 100, 30);
 	   
-		TextoDataVacina.setBounds(560, 300, 50, 30);
+		TextoDataVacina.setBounds(560, 300, 100, 30);
 	    jlabDataVacina.setBounds(460, 300, 100, 30);
 	    
 		TextoDataDose.setBounds(560, 350, 200, 30);
@@ -81,12 +85,14 @@ public class TelaCadastroVacina implements ActionListener{
 		
 		tela.add(adicionarVacina);
 		
-		adicionarVacina.setActionCommand("adicionarVacina");
+		adicionarVacina.setActionCommand("Adicionar Vacina");
         adicionarVacina.addActionListener(this);
 		
 		tela.pack();
+		tela.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		tela.setVisible(true); 
 	}
+	
 	
 	
 	public void actionPerformed(ActionEvent ae) {

@@ -34,13 +34,15 @@ public class TelaInicial implements ActionListener{
 		cadastrarPet.addActionListener(this); 
 		buscarPet.addActionListener(this); 
 		
-		cadastrarPet.setActionCommand("buscarPet");
+		cadastrarPet.setActionCommand("Cadastrar Pet");
+		buscarPet.setActionCommand("Buscar Pet");
 		
 		tela.add(jlabTitulo);
 		tela.add(cadastrarPet);
 		tela.add(buscarPet);
 		
 		tela.pack();
+		tela.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		tela.setVisible(true);
 		
 	}

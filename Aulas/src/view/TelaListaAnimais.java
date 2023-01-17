@@ -1,10 +1,35 @@
 package view;
 
-public class TelaListaAnimais {
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+import javax.swing.JFrame;
 
+public class TelaListaAnimais implements ActionListener{
+	private static JFrame tela;
+
+	public TelaListaAnimais() {
+		tela = new JFrame("Lista de Pets!"); 
+		tela.setSize(448, 500);;
+		tela.setLayout(null); 
+		tela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+		
+		
+		
+		
+		tela.setExtendedState(JFrame.MAXIMIZED_BOTH);
+		tela.setVisible(true);
+	}
+	
+	
+	
+	
+	public void actionPerformed(ActionEvent ae) {
+		
+	}
+	
+	public static void main(String[] args) {	
+		TelaListaAnimais telaListaAnimais = new TelaListaAnimais();
 	}
 
 }

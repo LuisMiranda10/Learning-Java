@@ -21,14 +21,17 @@ public class TelaLogin implements ActionListener{
 	
 	
 	public TelaLogin() {
+	  //Define as propriedades da Tela
 		tela = new JFrame("Tela de Login!"); 
-		tela.setSize(1100, 700);;
+		tela.setSize(1100, 700);
 		tela.setLayout(null); 
 		tela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
 		
 		String generos[] = {"Macho", "Fêmea", "Indefinido"};
 		String especies[] = { "Canina", "Felina", "Roedor"};
 		String porte[] = {"Alto", "Médio", "Baixo"};
+		
+	//Inicializando as váriaveis
 		
 		listaGenero = new JComboBox(generos);
 		listaEspecie = new JComboBox(especies); 
@@ -52,6 +55,7 @@ public class TelaLogin implements ActionListener{
 		
 		adicionarAnimal = new JButton("Adicionar Pet");
 		
+	//Definindo as posições dos Jlabels e TextField
 		jlabTitulo.setBounds(545, 185, 400, 30);
 
 		TextoNome.setBounds(560, 250, 200, 30);
@@ -80,6 +84,7 @@ public class TelaLogin implements ActionListener{
 		
 		adicionarAnimal.setBounds(520, 670, 200, 40);
 		
+	//Adicionando os components na tela
 		tela.add(jlabTitulo);
 		tela.add(jlabNome); 
 		tela.add(jlabIdade); 
@@ -101,20 +106,22 @@ public class TelaLogin implements ActionListener{
 		
 		tela.add(adicionarAnimal);
 		
-		adicionarAnimal.setActionCommand("adicionarAnimal");
+	//Colocando o ActionListener no botão
+		adicionarAnimal.setActionCommand("Adicionar Pet");
         adicionarAnimal.addActionListener(this);
 		
 		tela.pack();
+		tela.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		tela.setVisible(true); 
 	}
 	
+	//Evento de ação
 	public void actionPerformed(ActionEvent ae) { 
 		if ("Adicionar Pet" == ae.getActionCommand()) {
-            //new Tela();
+            new TelaListaAnimais();
             tela.dispose();
          }
 	}
-	
 	
 	public static void main(String[] a) { 
 		TelaLogin telaLogin = new TelaLogin();		
