@@ -1,10 +1,12 @@
 package view;
 
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
@@ -14,10 +16,18 @@ import java.awt.*;
 
 public class TelaCadastro implements ActionListener{
 	private static JFrame tela;
+	private static JRadioButton canina, felina, roedor;
+	JLabel jlabTamanhoPelagem, jlabSituacaoDentes, jlabSituacaoFucinho;
+	JComboBox<String>listaPelagem; 
+	JComboBox<String>listaSituacaoDente;
+	JComboBox<String>listaSituacaoFucinho;
 		
 	String generos[] = {"Macho", "Fêmea", "Indefinido"};
-	String especies[] = { "Canina", "Felina", "Roedor"};
 	String porte[] = {"Alto", "Médio", "Baixo"};
+	
+	String pelagem[] = {"Alta", "Média", "Curta"};
+	String situacaoDente[] = {"Ótima", "Média", "Ruim"};
+	String situacaoFucinho[] = {"Ótimo", "Médio", "Ruim"};
 		
 	TelaCadastro () {
 			tela = new JFrame("Tela de Cadastro!"); 
@@ -29,6 +39,7 @@ public class TelaCadastro implements ActionListener{
 				
 			titulo();
 			construirCadastro();
+		    
 		}
 	
 		public void titulo() {
@@ -48,6 +59,9 @@ public class TelaCadastro implements ActionListener{
 			idadeAnimal();
 			genero();
 			adicionarAnimal();	
+			pelagem();
+			situacaoDentes();
+			situacaoFucinho();
 	    }
 		
 		public void nome() {
@@ -74,7 +88,7 @@ public class TelaCadastro implements ActionListener{
 		
 		public void nomePet() {
 			JTextField TextoNomePet = new JTextField();
-			JLabel jlabNomePet = new JLabel("Nome do seu Pet: ");
+			JLabel jlabNomePet = new JLabel("Nome do Pet: ");
 			
 			TextoNomePet.setBounds(560, 400, 200, 30);
 			jlabNomePet.setBounds(460, 400, 110, 30);
@@ -85,18 +99,33 @@ public class TelaCadastro implements ActionListener{
 		
 		public void especie() {
 			JLabel jlabEspecie = new JLabel("Selecione a espécie: ");
-			JComboBox listaEspecie = new JComboBox<>(especies); 
+			canina = new JRadioButton("Canina");
+			felina = new JRadioButton("Felina");
+			roedor = new JRadioButton("Roedor");
 			
-			listaEspecie.setBounds(580, 450, 180, 30);
-			jlabEspecie.setBounds(460, 450, 150, 30);
+			canina.setBounds(580, 600, 65, 30);
+			felina.setBounds(650, 600, 60, 30);
+			roedor.setBounds(720, 600, 70, 30);
+			jlabEspecie.setBounds(460, 600, 150, 30);
+			
+			canina.addActionListener(this);
+			felina.addActionListener(this);
+			roedor.addActionListener(this);
 			
 			tela.add(jlabEspecie);
-			tela.add(listaEspecie);
+			tela.add(canina);
+			tela.add(felina);
+			tela.add(roedor);
+			
+			ButtonGroup opcoes = new ButtonGroup();
+			opcoes.add(canina);
+			opcoes.add(felina);
+			opcoes.add(roedor);
 		}
 		
 		public void raca() {
 			JTextField TextoRaca = new JTextField();
-			JLabel jlabRaca = new JLabel("Raca: ");
+			JLabel jlabRaca = new JLabel("Raça do Pet: ");
 			
 			TextoRaca.setBounds(560, 500, 200, 30);
 			jlabRaca.setBounds(460, 500, 100, 30);
@@ -109,8 +138,8 @@ public class TelaCadastro implements ActionListener{
 			JLabel  jlabAltura = new JLabel("Porte do Pet: ");
 			JComboBox listaPorte = new JComboBox<>(porte);
 			
-			listaPorte.setBounds(560,550, 200, 30);
-			jlabAltura.setBounds(460, 550, 150, 30);
+			listaPorte.setBounds(560,450, 200, 30);
+			jlabAltura.setBounds(460, 450, 150, 30);
 			
 			tela.add(jlabAltura);
 			tela.add(listaPorte);
@@ -118,10 +147,10 @@ public class TelaCadastro implements ActionListener{
 		
 		public void idadeAnimal() {
 			JTextField TextoIdadeAnimal = new JTextField();
-			JLabel jlabIdadeAnimal = new JLabel("Idade do seu pet: ");
+			JLabel jlabIdadeAnimal = new JLabel("Idade do Pet: ");
 			
-			TextoIdadeAnimal.setBounds(560, 600, 200, 30);
-			jlabIdadeAnimal.setBounds(460, 600, 100, 30);
+			TextoIdadeAnimal.setBounds(560, 550, 200, 30);
+			jlabIdadeAnimal.setBounds(460, 550, 100, 30);
 			
 			tela.add(jlabIdadeAnimal);
 			tela.add(TextoIdadeAnimal);	
@@ -140,12 +169,48 @@ public class TelaCadastro implements ActionListener{
 		
 		public void adicionarAnimal() {
 			JButton adicionarAnimal = new JButton("Adicionar Pet");
-			adicionarAnimal.setBounds(520, 670, 200, 40);
+			adicionarAnimal.setBounds(520, 750, 200, 40);
 		
 			adicionarAnimal.setActionCommand("Adicionar Pet");
 	        adicionarAnimal.addActionListener(this);
 			
 			tela.add(adicionarAnimal);
+		}
+		
+		public void pelagem() {
+	        jlabTamanhoPelagem = new JLabel("Tamanho da pelagem: ");
+	        jlabTamanhoPelagem.setBounds(460, 650, 150, 30);
+	        jlabTamanhoPelagem.setVisible(false);
+	        tela.add(jlabTamanhoPelagem);
+	        
+	        listaPelagem = new JComboBox<>(pelagem);	
+			listaPelagem.setBounds(590, 650, 170, 30);
+			listaPelagem.setVisible(false);
+			tela.add(listaPelagem);
+		}
+		
+		public void situacaoDentes() {
+			jlabSituacaoDentes = new JLabel("Situação dos dentes: ");
+		    jlabSituacaoDentes.setBounds(460, 650, 150, 30);
+		    jlabSituacaoDentes.setVisible(false);
+		    tela.add(jlabSituacaoDentes);
+		        
+	        listaSituacaoDente = new JComboBox<>(situacaoDente);	
+	        listaSituacaoDente.setBounds(590, 650, 170, 30);
+            listaSituacaoDente.setVisible(false);
+			tela.add(listaSituacaoDente); 
+		}
+		
+		public void situacaoFucinho() {
+			jlabSituacaoFucinho = new JLabel("Situação do fucinho: ");
+			jlabSituacaoFucinho.setBounds(460, 650, 150, 30);
+			jlabSituacaoFucinho.setVisible(false);
+		    tela.add(jlabSituacaoFucinho);
+		        
+	        listaSituacaoFucinho = new JComboBox<>(situacaoFucinho);	
+	        listaSituacaoFucinho.setBounds(590, 650, 170, 30);
+	        listaSituacaoFucinho.setVisible(false);
+			tela.add(listaSituacaoFucinho); 
 		}
 	
 	//Evento de ação
@@ -155,6 +220,33 @@ public class TelaCadastro implements ActionListener{
             new TelaListaAnimais();
             tela.dispose();
          }
+		if(felina.isSelected() == true && canina.isSelected() == false && roedor.isSelected() == false) {
+			jlabTamanhoPelagem.setVisible(true);
+			listaPelagem.setVisible(true);
+			
+			jlabSituacaoDentes.setVisible(false);
+	        listaSituacaoDente.setVisible(false);
+	        jlabSituacaoFucinho.setVisible(false);
+	        listaSituacaoFucinho.setVisible(false);
+		}
+		if(roedor.isSelected() == true && canina.isSelected() == false && felina.isSelected() == false) {
+			jlabSituacaoDentes.setVisible(true);
+	        listaSituacaoDente.setVisible(true);
+		
+	        jlabTamanhoPelagem.setVisible(false);
+			listaPelagem.setVisible(false);
+			jlabSituacaoFucinho.setVisible(false);
+			listaSituacaoFucinho.setVisible(false);
+		}
+		if(canina.isSelected() == true && roedor.isSelected() == false && felina.isSelected() == false) {
+			jlabSituacaoFucinho.setVisible(true);
+			listaSituacaoFucinho.setVisible(true);
+		
+	        jlabTamanhoPelagem.setVisible(false);
+			listaPelagem.setVisible(false);
+			jlabSituacaoDentes.setVisible(false);
+	        listaSituacaoDente.setVisible(false);
+		}
 	}
 	
 	public static void main(String[] a) { 
