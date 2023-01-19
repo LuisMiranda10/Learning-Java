@@ -16,7 +16,7 @@ import view.TelaEditarPet;
 
 public class TelaListaAnimais implements ActionListener{
 	private static JFrame tela;
-	private static JPanel painelPerfilPet;
+	private static JPanel painelPerfilPet, painelPerfilVacina;
 	
 	public TelaListaAnimais() {
 		tela = new JFrame("Perfil do Pet!"); 
@@ -27,49 +27,90 @@ public class TelaListaAnimais implements ActionListener{
 		tela.setVisible(true);
 		
 		painelPerfilPet();
-		titulo();
-		botaoEditarPerfilPet();
-		botaoAdicionarVacina();
+		painelPerfilVacina();
+		tituloPet();
+		tituloVacina();
+		btnAdicionarVacina();
+		btnEditarPerfilPet();
+		btnDeletarPet();
+		btnDeletarVacina();
 	}
 	
 	public void painelPerfilPet() {
 		painelPerfilPet = new JPanel();
 		Border blackline = BorderFactory.createLineBorder(Color.black);
-		painelPerfilPet.setBounds(420, 180, 400, 600);
+		painelPerfilPet.setBounds(185, 180, 400, 600);
 		
 		painelPerfilPet.setBorder(blackline);
 		painelPerfilPet.setLayout(null);
 		tela.add(painelPerfilPet);
 		
 	}
+	
+	public void painelPerfilVacina() {
+		painelPerfilVacina = new JPanel();
+		Border blackline = BorderFactory.createLineBorder(Color.black);
+		painelPerfilVacina.setBounds(655, 180, 400, 600);
+		
+		painelPerfilVacina.setBorder(blackline);
+		painelPerfilVacina.setLayout(null);
+		tela.add(painelPerfilVacina);
+		
+	}
 
-	public void titulo() {
+	public void tituloPet() {
 		JLabel jlabTitulo = new JLabel("MEU PET");
-	    jlabTitulo.setBounds(595, 130, 400, 30);
+	    jlabTitulo.setBounds(355, 130, 400, 30);
 		
 		tela.add(jlabTitulo);
 	}
 	
-	public void botaoEditarPerfilPet() {
-		JButton botaoEditarPet = new JButton("Editar Pet");
+	public void tituloVacina() {
+		JLabel jlabTituloVacina = new JLabel("CARTÃO VACINA");
+		jlabTituloVacina.setBounds(805, 130, 400, 30);
 		
-		botaoEditarPet.setActionCommand("EditarPet");
-		botaoEditarPet.addActionListener(this);
-		
-		botaoEditarPet.setBounds(650, 810, 90, 30);
-		tela.add(botaoEditarPet);
+		tela.add(jlabTituloVacina);
 	}
 	
-	public void botaoAdicionarVacina() {
-		JButton botaoAddVacina = new JButton("Adicionar Vacina");
+	public void btnAdicionarVacina() {
+		JButton btnAddVacina = new JButton("Adicionar Vacina");
 		
-		botaoAddVacina.setActionCommand("AdicionarVacina");
-		botaoAddVacina.addActionListener(this);
+		btnAddVacina.setActionCommand("AdicionarVacina");
+		btnAddVacina.addActionListener(this);
 		
-		botaoAddVacina.setBounds(490, 810, 150, 30);
-		tela.add(botaoAddVacina);
+		btnAddVacina.setBounds(665, 810, 130, 30);
+		tela.add(btnAddVacina);
 	}
 	
+	public void btnEditarPerfilPet() {
+		JButton btnEditarPet = new JButton("Editar Pet");
+		
+		btnEditarPet.setActionCommand("EditarPet");
+		btnEditarPet.addActionListener(this);
+		
+		btnEditarPet.setBounds(270, 810, 90, 30);
+		tela.add(btnEditarPet);
+	}
+	
+	public void btnDeletarPet() {
+		JButton deletarPet = new JButton("Deletar Pet");
+		deletarPet.setBounds(390, 810, 100, 30);
+		
+		deletarPet.setActionCommand("DeletarPet");
+		deletarPet.addActionListener(this);
+		
+		tela.add(deletarPet);
+	}
+	
+	public void btnDeletarVacina() {
+		JButton deletarVacina = new JButton("Deletar Vacina");
+		deletarVacina.setBounds(810, 810, 120, 30);
+		
+		deletarVacina.setActionCommand("Deletar Vacina");
+		deletarVacina.addActionListener(this);
+		
+		tela.add(deletarVacina);
+	}
 	
 	public void actionPerformed(ActionEvent ae) {
 		if ("AdicionarVacina" == ae.getActionCommand()) {

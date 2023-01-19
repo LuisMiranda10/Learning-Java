@@ -20,7 +20,6 @@ public class TelaInicial implements ActionListener{
 		tela.setSize(660, 800);
 		tela.setLayout(null); 
 		tela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
-		tela.pack();
 		tela.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		tela.setVisible(true);
 		
@@ -64,7 +63,7 @@ public class TelaInicial implements ActionListener{
             tela.dispose();
          }else if
         	("Buscar Pet" == ae.getActionCommand()){
-        	//new Tela();
+        	new TelaConsulta();
             tela.dispose();
          }
 	}
