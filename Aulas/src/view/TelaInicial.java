@@ -57,6 +57,10 @@ public class TelaInicial implements ActionListener{
 			tela.add(btnBuscarPet);			
 	    }
 	
+	public static void main(String[] a) { 
+		new TelaInicial();		
+	}
+	
 	public void actionPerformed(ActionEvent ae) {
 		if ("Cadastrar Pet" == ae.getActionCommand()) {
             new TelaCadastro();
@@ -66,10 +70,6 @@ public class TelaInicial implements ActionListener{
         	new TelaConsulta();
             tela.dispose();
          }
-	}
-	
-	public static void main(String[] a) { 
-		new TelaInicial();		
 	}
 
 }

@@ -24,6 +24,6 @@ public class Gato extends Animal {
 
     public String toString() {
         return "GATO\n"
-        		+ "Nome: " + getNome() + ", Especie: " + getEspecie() + ", Raca: " + getRaca() + ", Genero: " + getGenero() + ", Idade: " + getIdade() + ", Porte: " + getAltura() + ", Pelagem: " + getPelagem() + "\n";
+        		+ "Nome: " + getNome() + ", Especie: " + getEspecie() + ", Raca: " + getRaca() + ", Genero: " + getGenero() + ", Idade: " + getIdadePet() + ", Porte: " + getAltura() + ", Pelagem: " + getPelagem() + "\n";
     }
 }

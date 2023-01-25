@@ -27,15 +27,15 @@ public class Aplication {
 		
 		cachorro.setNome("Zezin");
 		cachorro.setEspecie("Canina");
-		cachorro.setIdade(25);
+		cachorro.setIdadePet(25);
 		cachorro.setRaca("Pinscher");
 		cachorro.setGenero("Masculino");
 		cachorro.setAltura("Alto");
-		cachorro.setCastrado(false);
+		cachorro.setSituacaoFucinho("ruim");
 		
 		gato.setNome("Miazinha");
 		gato.setEspecie("felina");
-		gato.setIdade(8);
+		gato.setIdadePet(8);
 		gato.setRaca("gato-de-bengala");
 		gato.setGenero("Feminino");
 		gato.setAltura("Baixo");
@@ -43,7 +43,7 @@ public class Aplication {
 		
 		coelho.setNome("Coelhito");
 		coelho.setEspecie("Roedor");
-		coelho.setIdade(8);
+		coelho.setIdadePet(8);
 		coelho.setRaca("coelhin-da-Pascóa");
 		coelho.setGenero("Feminino");
 		coelho.setAltura("Medio");

@@ -14,17 +14,17 @@ import javax.swing.JTextField;
 public class TelaEditarPet implements ActionListener{
 	private static JFrame tela;
 	private static JRadioButton canina, felina, roedor;
-	JLabel jlabTamanhoPelagem, jlabSituacaoDentes, jlabSituacaoFucinho;
+	JLabel jlabTamanhoPelagem, jlabSituacaoDentes, jlabSituacaoFocinho;
 	JComboBox<String>listaPelagem; 
 	JComboBox<String>listaSituacaoDente;
-	JComboBox<String>listaSituacaoFucinho;
+	JComboBox<String>listaSituacaoFocinho;
 	
 	String generos[] = {"Macho", "Fêmea", "Indefinido"};
 	String porte[] = {"Alto", "Médio", "Baixo"};
 	
 	String pelagem[] = {"Alta", "Média", "Curta"};
 	String situacaoDente[] = {"Ótima", "Média", "Ruim"};
-	String situacaoFucinho[] = {"Ótimo", "Médio", "Ruim"};
+	String situacaoFocinho[] = {"Ótimo", "Médio", "Ruim"};
 	
 	TelaEditarPet(){
 		tela = new JFrame("Tela de editar Pet!"); 
@@ -54,10 +54,10 @@ public class TelaEditarPet implements ActionListener{
 			altura();
 			idadeAnimal();
 			genero();
-			adicionarAnimal();	
+			editarAnimal();	
 			pelagem();
 			situacaoDentes();
-			situacaoFucinho();
+			situacaoFocinho();
 	    }
 	 
 	 public void nome() {
@@ -163,14 +163,14 @@ public class TelaEditarPet implements ActionListener{
 			tela.add(listaGenero);  	
 		}
 		
-		public void adicionarAnimal() {
-			JButton adicionarAnimal = new JButton("Adicionar Pet");
-			adicionarAnimal.setBounds(520, 750, 200, 40);
+		public void editarAnimal() {
+			JButton editarAnimal = new JButton("Editar Pet");
+			editarAnimal.setBounds(520, 750, 200, 40);
 		
-			adicionarAnimal.setActionCommand("Adicionar Pet");
-	        adicionarAnimal.addActionListener(this);
+			editarAnimal.setActionCommand("EditarPet");
+	        editarAnimal.addActionListener(this);
 			
-			tela.add(adicionarAnimal);
+			tela.add(editarAnimal);
 		}
 		
 		public void pelagem() {
@@ -197,20 +197,24 @@ public class TelaEditarPet implements ActionListener{
 			tela.add(listaSituacaoDente); 
 		}
 		
-		public void situacaoFucinho() {
-			jlabSituacaoFucinho = new JLabel("Situação do fucinho: ");
-			jlabSituacaoFucinho.setBounds(460, 650, 150, 30);
-			jlabSituacaoFucinho.setVisible(false);
-		    tela.add(jlabSituacaoFucinho);
+		public void situacaoFocinho() {
+			jlabSituacaoFocinho = new JLabel("Situação do Focinho: ");
+			jlabSituacaoFocinho.setBounds(460, 650, 150, 30);
+			jlabSituacaoFocinho.setVisible(false);
+		    tela.add(jlabSituacaoFocinho);
 		        
-	        listaSituacaoFucinho = new JComboBox<>(situacaoFucinho);	
-	        listaSituacaoFucinho.setBounds(590, 650, 170, 30);
-	        listaSituacaoFucinho.setVisible(false);
-			tela.add(listaSituacaoFucinho); 
+	        listaSituacaoFocinho = new JComboBox<>(situacaoFocinho);	
+	        listaSituacaoFocinho.setBounds(590, 650, 170, 30);
+	        listaSituacaoFocinho.setVisible(false);
+			tela.add(listaSituacaoFocinho); 
+		}
+		
+		public static void main(String[] a) { 
+			new TelaEditarPet();		
 		}
 		
 		public void actionPerformed(ActionEvent ae) {
-			if ("Adicionar Pet" == ae.getActionCommand()) {
+			if ("EditarPet" == ae.getActionCommand()) {
 				 new TelaListaAnimais();
 		         tela.dispose();
 			}
@@ -220,8 +224,8 @@ public class TelaEditarPet implements ActionListener{
 				
 				jlabSituacaoDentes.setVisible(false);
 		        listaSituacaoDente.setVisible(false);
-		        jlabSituacaoFucinho.setVisible(false);
-		        listaSituacaoFucinho.setVisible(false);
+		        jlabSituacaoFocinho.setVisible(false);
+		        listaSituacaoFocinho.setVisible(false);
 			}
 			if(roedor.isSelected() == true && canina.isSelected() == false && felina.isSelected() == false) {
 				jlabSituacaoDentes.setVisible(true);
@@ -229,12 +233,12 @@ public class TelaEditarPet implements ActionListener{
 			
 		        jlabTamanhoPelagem.setVisible(false);
 				listaPelagem.setVisible(false);
-				jlabSituacaoFucinho.setVisible(false);
-				listaSituacaoFucinho.setVisible(false);
+				jlabSituacaoFocinho.setVisible(false);
+				listaSituacaoFocinho.setVisible(false);
 			}
 			if(canina.isSelected() == true && roedor.isSelected() == false && felina.isSelected() == false) {
-				jlabSituacaoFucinho.setVisible(true);
-				listaSituacaoFucinho.setVisible(true);
+				jlabSituacaoFocinho.setVisible(true);
+				listaSituacaoFocinho.setVisible(true);
 			
 		        jlabTamanhoPelagem.setVisible(false);
 				listaPelagem.setVisible(false);
@@ -242,8 +246,4 @@ public class TelaEditarPet implements ActionListener{
 		        listaSituacaoDente.setVisible(false);
 			}
 		  }
-		
-		public static void main(String[] a) { 
-			new TelaEditarPet();		
-		}
 }

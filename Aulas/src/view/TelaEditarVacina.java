@@ -2,8 +2,6 @@ package view;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -11,13 +9,13 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-public class TelaCadastroVacina implements ActionListener{
-	private static JFrame tela;
+public class TelaEditarVacina implements ActionListener {
+private static JFrame tela;
 	
 	String doses[] = {"1", "2", "3", "Mais de 3"};
 	
-	TelaCadastroVacina() {
-		tela = new JFrame("Cadastro de Vacinas!"); 
+	TelaEditarVacina() {
+		tela = new JFrame("Editar Vacina!"); 
 		tela.setSize(660, 800);
 		tela.setLayout(null); 
 		tela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
@@ -32,12 +30,12 @@ public class TelaCadastroVacina implements ActionListener{
 		local();
 		lote();
 		doses();
-		btnAdicionarVacina();
+		btnEditarVacina();
 	}
 	
 	public void titulo() {
-		JLabel jlabTitulo = new JLabel("CADASTRO DE VACINA");
-		jlabTitulo.setBounds(545, 185, 400, 30);
+		JLabel jlabTitulo = new JLabel("EDITAR VACINA");
+		jlabTitulo.setBounds(565, 185, 400, 30);
 		
 		tela.add(jlabTitulo);
 	}
@@ -108,27 +106,25 @@ public class TelaCadastroVacina implements ActionListener{
 		tela.add(listaDoses);
 	}
 	
-	public void btnAdicionarVacina() {
-		JButton adicionarVacina = new JButton("Adicionar Vacina");
-		adicionarVacina.setBounds(520, 580, 200, 40);
+	public void btnEditarVacina() {
+		JButton EditarVacina = new JButton("Editar Vacina");
+		EditarVacina.setBounds(520, 580, 200, 40);
 	
-		adicionarVacina.setActionCommand("AdicionarVacina");
-        adicionarVacina.addActionListener(this);
+		EditarVacina.setActionCommand("EditarVacina");
+        EditarVacina.addActionListener(this);
 		
-		tela.add(adicionarVacina);
+		tela.add(EditarVacina);
 	}
 	
-	
 	public void actionPerformed(ActionEvent ae) {
-		if ("AdicionarVacina" == ae.getActionCommand()) {
+		if ("EditarVacina" == ae.getActionCommand()) {
             new TelaListaAnimais();
             tela.dispose();
          }
 	}
-	
-	
-	public static void main(String[] args) {
-		 new TelaCadastroVacina();
-	}
 
+	public static void main(String[] args) {
+		new TelaEditarVacina();
+
+	}
 }

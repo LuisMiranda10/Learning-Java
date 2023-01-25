@@ -34,6 +34,8 @@ public class TelaListaAnimais implements ActionListener{
 		btnEditarPerfilPet();
 		btnDeletarPet();
 		btnDeletarVacina();
+		btnEditarVacina();
+		
 	}
 	
 	public void painelPerfilPet() {
@@ -55,7 +57,6 @@ public class TelaListaAnimais implements ActionListener{
 		painelPerfilVacina.setBorder(blackline);
 		painelPerfilVacina.setLayout(null);
 		tela.add(painelPerfilVacina);
-		
 	}
 
 	public void tituloPet() {
@@ -92,9 +93,19 @@ public class TelaListaAnimais implements ActionListener{
 		tela.add(btnEditarPet);
 	}
 	
+	public void btnEditarVacina() {
+		JButton btnEditarVacina = new JButton("Editar Vacina");
+		
+		btnEditarVacina.setActionCommand("EditarVacina");
+		btnEditarVacina.addActionListener(this);
+		
+		btnEditarVacina.setBounds(935, 810, 120, 30);
+		tela.add(btnEditarVacina);
+	}
+	
 	public void btnDeletarPet() {
 		JButton deletarPet = new JButton("Deletar Pet");
-		deletarPet.setBounds(390, 810, 100, 30);
+		deletarPet.setBounds(380, 810, 100, 30);
 		
 		deletarPet.setActionCommand("DeletarPet");
 		deletarPet.addActionListener(this);
@@ -104,12 +115,16 @@ public class TelaListaAnimais implements ActionListener{
 	
 	public void btnDeletarVacina() {
 		JButton deletarVacina = new JButton("Deletar Vacina");
-		deletarVacina.setBounds(810, 810, 120, 30);
+		deletarVacina.setBounds(805, 810, 120, 30);
 		
 		deletarVacina.setActionCommand("Deletar Vacina");
 		deletarVacina.addActionListener(this);
 		
 		tela.add(deletarVacina);
+	}
+	
+	public static void main(String[] args) {	
+		new TelaListaAnimais();
 	}
 	
 	public void actionPerformed(ActionEvent ae) {
@@ -120,9 +135,5 @@ public class TelaListaAnimais implements ActionListener{
 			 new TelaEditarPet();
 	         tela.dispose();
 		}
-	}
-	
-	public static void main(String[] args) {	
-		new TelaListaAnimais();
 	}
 }

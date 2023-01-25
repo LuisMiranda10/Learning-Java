@@ -24,7 +24,7 @@ public class TelaConsulta implements ActionListener {
 
         Object [] []dados= {
             {"Bruna Griphao", "20", "Zezin"},
-            {"Joao Gomes", "43", "Arrascaneta"},
+            {"Joao Gomes", "43", "Arrascapeta"},
             {"Pedro Certezas", "55", "Paulito Sousita"}
         };
         

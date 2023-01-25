@@ -24,6 +24,6 @@ public class Coelho extends Animal{
 
     public String toString() {
         return "COELHO\n"
-        		+ "Nome: " + getNome() + ", Especie: " + getEspecie() + ", Raca: " + getRaca() + ", Genero: " + getGenero() + ", Idade: " + getIdade() + ", Porte: " + getAltura() + ", Situacao dos dentes: " + getSituacaoDosDentes() + "\n";
+        		+ "Nome: " + getNome() + ", Especie: " + getEspecie() + ", Raca: " + getRaca() + ", Genero: " + getGenero() + ", Idade: " + getIdadePet() + ", Porte: " + getAltura() + ", Situacao dos dentes: " + getSituacaoDosDentes() + "\n";
     }
 }

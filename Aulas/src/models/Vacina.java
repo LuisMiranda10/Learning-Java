@@ -1,7 +1,6 @@
 package models;
 
 public class Vacina { //Atributos classe Vacina
-	private int id;
 	private String tipoVacina;
 	private String dataVacina;
 	private String dataDose;
@@ -10,8 +9,7 @@ public class Vacina { //Atributos classe Vacina
 	private int doses;
 
 	//Construtor
- public Vacina (int id, String tipoVacina, String dataVacina, String dataDose, String local, String lote, int doses) {
-	this.id = id;
+ public Vacina (String tipoVacina, String dataVacina, String dataDose, String local, String lote, int doses) {
 	this.tipoVacina = tipoVacina ;
 	this.dataVacina = dataVacina ;
 	this.dataDose = dataDose;
@@ -25,14 +23,6 @@ public class Vacina { //Atributos classe Vacina
  }
  
  //getters e setters dos atributos da classe Vacina
- public int getId() {
-		return id;
-}
-
-public void setId(int id) {
-		this.id = id;
-}
- 
  public String getTipoVacina() {
 	 return tipoVacina;
  }

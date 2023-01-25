@@ -66,11 +66,11 @@ public abstract class Animal { //Atributos classe Animal
 		this.genero = genero;
 	}
 	
-	public int getIdade() {
+	public int getIdadePet() {
 		return idade;
 	}
 	
-	public void setIdade(int idade) {
+	public void setIdadePet(int idade) {
 		this.idade = idade;
 	}
 	
