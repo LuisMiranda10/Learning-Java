@@ -68,6 +68,12 @@ public class TelaInicial implements ActionListener{
 			tela.add(btnCadastrarPet);
 		}
 		
+	    
+	    /**
+		 * Função buscarPet exibe uma JTextField e um botão para realizar a busca dos
+		 * pets.
+		 */
+	    
 	    public void buscarPet() {
 	    	JLabel jlabBuscarPet = new JLabel("PESQUISE UM PET");
 	    	jlabBuscarPet.setBounds(545, 510, 130, 30);

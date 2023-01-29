@@ -13,14 +13,13 @@ public class ControleVacinas {
 		this.qtdVacinas = dados.getQtdVacinas();
 	}
 
-	public ArrayList<String> getTipoVacina() {
-		ArrayList<String> tipoVacinas = new ArrayList<String>();
-		for(int i = 0; i < vacinas.size(); i++) {
-			tipoVacinas.add(vacinas.get(i).getTipoVacina());
-		}
-		
-		return tipoVacinas;
-	}
+	public String[] getNomeTipoVacinas() {
+        String[] nomesVacinas = new String[qtdVacinas];
+        for (int i = 0; i < qtdVacinas; i++) {
+            nomesVacinas[i] = vacinas.get(i).getTipoVacina();
+            }
+        return nomesVacinas;
+    } 
 	
 	public String getTipoVacina(int i) {
 		 return vacinas.get(i).getTipoVacina();

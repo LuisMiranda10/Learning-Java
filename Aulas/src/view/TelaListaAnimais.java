@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -8,9 +9,13 @@ import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.ListSelectionModel;
 import javax.swing.border.Border;
+import javax.swing.event.ListSelectionListener;
 
 import controler.*;
 
@@ -22,6 +27,9 @@ public class TelaListaAnimais implements ActionListener{
 	private ControleDados dados;
 	private int indexAnimal;
 	private int indexVacina;
+	private String listaAnimais;
+	private JList<String> listaVacinas;
+	private JTextArea area;
 	
 	
 	public TelaListaAnimais(ControleDados dados, int index) {
@@ -30,13 +38,13 @@ public class TelaListaAnimais implements ActionListener{
 		cv = new ControleVacinas(dados);
 		
 		indexAnimal = index;
+		indexVacina = index;
 		
 		tela = new JFrame("Perfil do Pet!"); 
 		tela.setSize(660, 800);;
 		tela.setLayout(null); 
 		tela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
 		tela.setExtendedState(JFrame.MAXIMIZED_BOTH);
-		tela.setVisible(true);
 		
 		painelPerfilPet();
 		painelPerfilVacina();
@@ -47,6 +55,7 @@ public class TelaListaAnimais implements ActionListener{
 		btnDeletarPet();
 		btnDeletarVacina();
 		btnEditarVacina();
+		tela.setVisible(true);
 	}
 	
 	public void painelPerfilPet() {
@@ -58,6 +67,17 @@ public class TelaListaAnimais implements ActionListener{
 		painelPerfilPet.setLayout(null);
 		tela.add(painelPerfilPet);
 		
+	//Lista de animais
+		
+		listaAnimais = new String(ca.getAnimais().get(indexAnimal).toString());
+		area = new JTextArea(listaAnimais);
+		area.setBackground(new Color(0, 0, 0, 0));
+		area.setOpaque(false);
+		area.setFont(new Font("Times New Roman", Font.BOLD, 15));
+        area.setLineWrap(true);
+        area.setEditable(false);
+	    area.setBounds(0, 0, 295, 330);			
+		painelPerfilPet.add(area);
 	}
 	
 	public void painelPerfilVacina() {
@@ -68,6 +88,18 @@ public class TelaListaAnimais implements ActionListener{
 		painelPerfilVacina.setBorder(blackline);
 		painelPerfilVacina.setLayout(null);
 		tela.add(painelPerfilVacina);
+		
+		//Lista de Vacinas
+		
+//		listaVacinas = new JList<String>(cv.getVacinas().get(indexVacina).toString());
+//		listaVacinas.setBackground(new Color(0, 0, 0, 0));
+//		listaVacinas.setBounds(0, 0, 295, 330);
+//		listaVacinas.setOpaque(false);
+//		listaVacinas.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+//		listaVacinas.addListSelectionListener((ListSelectionListener) this);	
+		
+		tela.add(painelPerfilVacina);
+//		painelPerfilVacina.add(listaVacinas);
 	}
 
 	public void tituloPet() {
