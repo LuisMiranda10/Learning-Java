@@ -9,12 +9,28 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+import controler.ControleDados;
+
 public class TelaEditarVacina implements ActionListener {
-private static JFrame tela;
+	private static JFrame tela;
+	private ControleDados dados;
+	int indexVacina;
+	
+	JTextField TextoTipoVacina;
+	JTextField TextoDataVacina;
+	JTextField TextoDataDose;
+	JTextField TextoLocal;
+	JTextField TextoLote;
+	
+	JComboBox listaDoses;
 	
 	String doses[] = {"1", "2", "3", "Mais de 3"};
 	
-	TelaEditarVacina() {
+	TelaEditarVacina(ControleDados dados, int index) {
+		this.dados = dados;
+		indexVacina = index;
+		dados.removerVacina(indexVacina);
+		
 		tela = new JFrame("Editar Vacina!"); 
 		tela.setSize(660, 800);
 		tela.setLayout(null); 
@@ -41,7 +57,7 @@ private static JFrame tela;
 	}
 	
 	public void tipoVacina() {
-		JTextField TextoTipoVacina = new JTextField();
+		TextoTipoVacina = new JTextField();
 		JLabel jlabTipoVacina = new JLabel("Tipo da vacina: ");
 		
 		TextoTipoVacina.setBounds(560, 250, 200, 30);
@@ -52,7 +68,7 @@ private static JFrame tela;
 	}
 	
 	public void dataVacina() {
-		JTextField TextoDataVacina = new JTextField();
+		TextoDataVacina = new JTextField();
 		JLabel jlabDataVacina = new JLabel("Data da vacina: ");
 		
 		TextoDataVacina.setBounds(560, 300, 100, 30);
@@ -63,7 +79,7 @@ private static JFrame tela;
 	}
 	
 	public void dataDose() {
-		JTextField TextoDataDose = new JTextField();
+		TextoDataDose = new JTextField();
 		JLabel jlabDataDose = new JLabel("Data dose: ");
 		
 		TextoDataDose.setBounds(560, 350, 200, 30);
@@ -74,7 +90,7 @@ private static JFrame tela;
 	}
 	
 	public void local() {
-		JTextField TextoLocal = new JTextField();
+		TextoLocal = new JTextField();
 		JLabel jlabLocal = new JLabel("Local da vacina: ");
 		
 		TextoLocal.setBounds(560, 400, 200, 30);
@@ -85,7 +101,7 @@ private static JFrame tela;
 	}
 	
 	public void lote() {
-		JTextField TextoLote = new JTextField();
+		TextoLote = new JTextField();
 		JLabel jlabLote = new JLabel("Lote da vacina: ");
 		
 		TextoLote.setBounds(560, 450, 200, 30);
@@ -96,7 +112,7 @@ private static JFrame tela;
 	}
 	
 	public void doses() {
-        JComboBox listaDoses = new JComboBox<>(doses);
+        listaDoses = new JComboBox<>(doses);
 		JLabel jlabDoses = new JLabel("Número de doses: ");
 		
 		listaDoses.setBounds(570,500, 190, 30);
@@ -118,13 +134,19 @@ private static JFrame tela;
 	
 	public void actionPerformed(ActionEvent ae) {
 		if ("EditarVacina" == ae.getActionCommand()) {
-            new TelaListaAnimais();
+			String tipoVacinaNova = TextoTipoVacina.getText();
+			String novaDataVacina = TextoDataVacina.getText();
+			String novaDataDose = TextoDataDose.getText();
+			String novoLocal = TextoLocal.getText();
+			String novoLote = TextoLote.getText();
+			String novaDose = (String) listaDoses.getSelectedItem();
+
+			boolean addVacina = dados.adicionarVacina(tipoVacinaNova, novaDataVacina , novaDataDose , novoLocal, novoLote, novaDose);
+
+			int index = dados.buscarVacina(tipoVacinaNova, novaDataVacina);
+			
+            new TelaListaAnimais(dados, index);
             tela.dispose();
          }
-	}
-
-	public static void main(String[] args) {
-		new TelaEditarVacina();
-
 	}
 }

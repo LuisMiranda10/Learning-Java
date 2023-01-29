@@ -10,13 +10,13 @@ public class Dados {
 	
 	public void EncherDados() {
 		for(int i = 0; i < 5; i++) {
-			Cachorro cachorro = new Cachorro("Cachorro" + i, "canina" + i, "raca" + i, "genero" + i, i, "altura" + i, 
+			Cachorro cachorro = new Cachorro("Dono" + i, i,"Cachorro" + i, "canina" + i, "raca" + i, "genero" + i, i, "altura" + i, 
 			"situacao Focinho" + i);
-			Coelho coelho = new Coelho("Coelho" + i, "roedor" + i, "raca" + i, "genero" + i, i, "altura" + i, 
+			Coelho coelho = new Coelho("Dono" + i, i,"Coelho" + i, "roedor" + i, "raca" + i, "genero" + i, i, "altura" + i, 
 					"situacao Dentes" + i);
-			Gato gato = new Gato("Gato" + i, "felina" + i, "raca" + i, "genero" + i, i, "altura" + i, 
+			Gato gato = new Gato("Dono" + i, i,"Gato" + i, "felina" + i, "raca" + i, "genero" + i, i, "altura" + i, 
 					"Pelagem" + i);
-			Vacina vacina = new Vacina("Vacina" + i, "12/10/2022" + i, "14/10/2023" + i, "local" + i, "n lote" + i, i);
+			Vacina vacina = new Vacina("Vacina" + i, "12/10/2022" + i, "14/10/2023" + i, "local" + i, "n lote" + i, "Doses" + i);
 	
 			animais.add(cachorro);
 			animais.add(coelho);
@@ -43,7 +43,7 @@ public class Dados {
 	} 	
 	
 	public int getQtdVacinas() {
-        qtdVacinas = this.animais.size();
+        qtdVacinas = this.vacinas.size();
         return qtdVacinas;
     }
 	

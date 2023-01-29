@@ -36,11 +36,31 @@ public class ControleDados {
 	    return dados.getQtdVacinas();
     }
 	
+	public int buscarAnimal(String nomePet) {
+        for(int i = 0; i < dados.getQtdAnimais(); i++) {
+            if(dados.getAnimais().get(i).getNome().equals(nomePet)) {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+	
+	public int buscarVacina(String tipoVacina, String dataVacina) {
+        for(int i = 0; i < dados.getQtdVacinas(); i++) {
+            if(dados.getVacinas().get(i).getTipoVacina().equals(tipoVacina) && dados.getVacinas().get(i).getDataVacina().equals(dataVacina)) {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+	
 	/*
 	 *CRUD DE ANIMAL 
 	 */
 	
-	public boolean adicionarAnimal(String nomePet,String especie, String generos, String raca, int idadePet, String porte, String caracteristicaAnimal) {
+	public boolean adicionarAnimal(String nomeDono, int idadeDono, String nomePet,String especie, String generos, String raca, int idadePet, String porte, String caracteristicaAnimal) {
         int count = 0;
         
         for(int i = 0; i < dados.getQtdAnimais(); i++) {
@@ -57,17 +77,17 @@ public class ControleDados {
         } else {
         	if(especie == "canina") {
         		System.out.println("Animal cadastrado com sucesso!");
-                Cachorro c = new Cachorro(nomePet, especie, generos, raca, idadePet, porte, caracteristicaAnimal);
+                Cachorro c = new Cachorro(nomeDono, idadeDono, nomePet, especie, generos, raca, idadePet, porte, caracteristicaAnimal);
                 dados.adicionarAnimal(c, null, null);
                 return true;
         	}else if(especie == "roedor") {
         		System.out.println("Animal cadastrado com sucesso!");
-                Coelho co = new Coelho(nomePet, especie, generos, raca, idadePet, porte, caracteristicaAnimal);
+                Coelho co = new Coelho(nomeDono, idadeDono, nomePet, especie, generos, raca, idadePet, porte, caracteristicaAnimal);
                 dados.adicionarAnimal(null, co, null);
                 return true;
         	}else if(especie == "felina") {
         		System.out.println("Animal cadastrado com sucesso!");
-                Gato g = new Gato(nomePet, especie, generos, raca, idadePet, porte, caracteristicaAnimal);
+                Gato g = new Gato(nomeDono, idadeDono, nomePet, especie, generos, raca, idadePet, porte, caracteristicaAnimal);
                 dados.adicionarAnimal(null, null, g);
                 return true;
         	}
@@ -75,13 +95,14 @@ public class ControleDados {
        return false;
     }
         
-     public Boolean editarAnimal(int idx, String nomePetNovo,String novaEspecie,String novoGenero, String novaRaca, int novaIdadePet, String novoPorte ){
+     public Boolean editarAnimal(int idx, String nomeDonoNovo, int idadeDonoNovo, String nomePetNovo,String novaEspecie,String novoGenero, String novaRaca, int novaIdadePet, String novoPorte, String novaCaracteristica ){
                 String nomeAntigo = dados.getAnimais().get(idx).getNome();
 
                 for(int i = 0; i < dados.getQtdAnimais(); i++) {
                     if(dados.getAnimais().get(i).getNome().equals(nomeAntigo)) {
                
-
+                    	dados.getAnimais().get(i).setNomeDono(nomeDonoNovo);
+                    	dados.getAnimais().get(i).setIdadeDono(idadeDonoNovo);
                         dados.getAnimais().get(i).setNome(nomePetNovo);
                         dados.getAnimais().get(i).setGenero(novoGenero);
                         dados.getAnimais().get(i).setEspecie(novaEspecie);
@@ -114,7 +135,7 @@ public class ControleDados {
       * CRUD DE VACINA 
       */
      
-     public boolean adicionarVacina(String tipoVacina, String dataVacina, String dataDose, String local, String lote, int doses) {
+     public boolean adicionarVacina(String tipoVacina, String dataVacina, String dataDose, String local, String lote, String doses) {
          int count = 0;
 
          for(int i = 0; i < dados.getQtdVacinas(); i++) {
@@ -126,7 +147,7 @@ public class ControleDados {
          }
 
          if(count >= 1) {
-             System.out.println("Vacina já cadastrado!");
+             System.out.println("Vacina já cadastrada!");
              return false;
          } else {
              System.out.println("Vacina cadastrado com sucesso!");
@@ -136,7 +157,7 @@ public class ControleDados {
          }
      }
          
-      public Boolean editarVacina(int idx, String tipoVacinaNova, String novaDataVacina, String novaDataDose, String novoLocal, String novoLote, int novaDose) {
+      public Boolean editarVacina(int idx, String tipoVacinaNova, String novaDataVacina, String novaDataDose, String novoLocal, String novoLote, String novaDose) {
              String tipoVacinaAntiga = dados.getVacinas().get(idx).getTipoVacina();
              String dataDoseAntiga = dados.getVacinas().get(idx).getDataDose();
 
@@ -172,15 +193,15 @@ public class ControleDados {
       }
      
      /*
-      * Teste para remover Animal 
+      * Teste CRUD Animal/Vacina                                     
       */
      
      
      public static void main(String[] args) {	
- 	     ControleDados teste = new ControleDados();  
- 	     teste.adicionarAnimal("Messi", "canina", "Macho", "York", 3, "Alto", "Otima");
- 	     System.out.println(teste.dados.getAnimais());	     
- 	     teste.editarAnimal(15, "Messi", "canina", "Macho", "York", 3, "Alto", "Otima");
- 	     System.out.println(teste.dados.getAnimais());	
+ 	     ControleDados teste = new ControleDados();  	 
+ 	     teste.removerVacina(2);
+ 	     System.out.println(teste.dados.getVacinas()); 	     
+ 	    // teste.editarVacina(2, "Coronovac", "12/10/2003", "12/10/2024", "New York", "1 lote", 1);
+ 	     //System.out.println(teste.dados.getVacinas());	
  	}
 }

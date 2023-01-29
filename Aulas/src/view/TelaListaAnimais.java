@@ -8,17 +8,29 @@ import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
 
-import view.TelaCadastroVacina;
-import view.TelaEditarPet;
+import controler.*;
 
 public class TelaListaAnimais implements ActionListener{
 	private static JFrame tela;
 	private static JPanel painelPerfilPet, painelPerfilVacina;
+	private ControleAnimais ca;
+	private ControleVacinas cv;
+	private ControleDados dados;
+	private int indexAnimal;
+	private int indexVacina;
 	
-	public TelaListaAnimais() {
+	
+	public TelaListaAnimais(ControleDados dados, int index) {
+		this.dados = dados;
+		ca = new ControleAnimais(dados);
+		cv = new ControleVacinas(dados);
+		
+		indexAnimal = index;
+		
 		tela = new JFrame("Perfil do Pet!"); 
 		tela.setSize(660, 800);;
 		tela.setLayout(null); 
@@ -35,7 +47,6 @@ public class TelaListaAnimais implements ActionListener{
 		btnDeletarPet();
 		btnDeletarVacina();
 		btnEditarVacina();
-		
 	}
 	
 	public void painelPerfilPet() {
@@ -60,7 +71,7 @@ public class TelaListaAnimais implements ActionListener{
 	}
 
 	public void tituloPet() {
-		JLabel jlabTitulo = new JLabel("MEU PET");
+		JLabel jlabTitulo = new JLabel("PET :  " + ca.getNomePet(indexAnimal));
 	    jlabTitulo.setBounds(355, 130, 400, 30);
 		
 		tela.add(jlabTitulo);
@@ -117,23 +128,39 @@ public class TelaListaAnimais implements ActionListener{
 		JButton deletarVacina = new JButton("Deletar Vacina");
 		deletarVacina.setBounds(805, 810, 120, 30);
 		
-		deletarVacina.setActionCommand("Deletar Vacina");
+		deletarVacina.setActionCommand("DeletarVacina");
 		deletarVacina.addActionListener(this);
 		
 		tela.add(deletarVacina);
 	}
 	
-	public static void main(String[] args) {	
-		new TelaListaAnimais();
-	}
-	
 	public void actionPerformed(ActionEvent ae) {
 		if ("AdicionarVacina" == ae.getActionCommand()) {
-			 new TelaCadastroVacina();
+			 new TelaCadastroVacina(dados, indexAnimal);
 	         tela.dispose();
 		}else if ("EditarPet" == ae.getActionCommand()) {
-			 new TelaEditarPet();
+			 new TelaEditarPet(dados, indexAnimal);
 	         tela.dispose();
+		}else if("EditarVacina" == ae.getActionCommand()) {
+			new TelaEditarVacina(dados, indexVacina);
+			tela.dispose();
+		}else if("DeletarPet" == ae.getActionCommand()) {
+			boolean delete = dados.removerAnimal(indexAnimal);
+		 
+			if(delete){
+			 JOptionPane.showMessageDialog(null, "Pet removido com sucesso!");
+			 new TelaInicial(dados);
+			 tela.dispose();
+		 
+		}else if("DeletarVacina" == ae.getActionCommand()) {
+			 boolean deleteVacina = dados.removerVacina(indexVacina);
+			 
+			 if(deleteVacina){
+			  JOptionPane.showMessageDialog(null, "Vacina removida com sucesso!");
+			  new TelaListaAnimais(dados, indexAnimal);
+			  tela.dispose();
+			 }	 
+		 }
 		}
 	}
 }

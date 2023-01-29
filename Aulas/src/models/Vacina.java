@@ -6,10 +6,10 @@ public class Vacina { //Atributos classe Vacina
 	private String dataDose;
 	private String local;
 	private String lote;
-	private int doses;
+	private String doses;
 
 	//Construtor
- public Vacina (String tipoVacina, String dataVacina, String dataDose, String local, String lote, int doses) {
+ public Vacina (String tipoVacina, String dataVacina, String dataDose, String local, String lote, String doses) {
 	this.tipoVacina = tipoVacina ;
 	this.dataVacina = dataVacina ;
 	this.dataDose = dataDose;
@@ -63,11 +63,11 @@ public String getLote() {
 	 this.lote = lote;
  }
  
- public int getDoses() {
+ public String getDoses() {
 	 return doses;
  }
  
- public void setDoses(int doses) {
+ public void setDoses(String doses) {
 	 this.doses = doses;
  }
  

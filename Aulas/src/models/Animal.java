@@ -1,6 +1,8 @@
 package models;
 
 public abstract class Animal { //Atributos classe Animal
+	private String nomeDono;
+	private int idadeDono;
 	private String nome;
 	private String especie;
 	private String raca;
@@ -10,6 +12,8 @@ public abstract class Animal { //Atributos classe Animal
 	
 	/**
 	 * Construtor Animal.
+	 * @param nomeDono
+	 * @param idadeDono
 	 * @param nome
 	 * @param especie
 	 * @param raca
@@ -19,7 +23,9 @@ public abstract class Animal { //Atributos classe Animal
 	 * @param altura    
 	 */
 	
-	public Animal(String nome, String especie, String raca, String genero, int idade, String altura) { 
+	public Animal(String nomeDono, int idadeDono, String nome, String especie, String raca, String genero, int idade, String altura) { 
+		this.nomeDono = nomeDono;
+		this.idadeDono = idadeDono;
 		this.nome = nome;
 		this.especie = especie;
 		this.raca = raca;
@@ -33,6 +39,22 @@ public abstract class Animal { //Atributos classe Animal
 	}
 	
 	//getters e setters para os atributos da classe Animal
+	
+	public String getNomeDono() {
+		return nomeDono;
+	}
+	
+	public void setNomeDono(String nomeDono) {
+		this.nomeDono = nomeDono; 
+	}
+	
+	public int getIdadeDono() {
+	    return idadeDono;
+	}
+	
+	public void setIdadeDono(int idadeDono) {
+		this.idadeDono = idadeDono;
+	}
 	
 	public String getNome() {
 		return nome;

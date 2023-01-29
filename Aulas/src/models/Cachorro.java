@@ -4,8 +4,8 @@ public class Cachorro extends Animal {
     private String situacaoFucinho;
 
     //Construtor que recebe os atributos
-    public Cachorro(String nome, String especie, String genero, String raca, int idade, String altura, String situacaoFucinho) {
-        super(nome, especie, raca, genero, idade, altura);
+    public Cachorro(String nomeDono, int idadeDono, String nome, String especie, String genero, String raca, int idade, String altura, String situacaoFucinho) {
+        super(nomeDono, idadeDono, nome, especie, raca, genero, idade, altura);
         this.situacaoFucinho = situacaoFucinho;
     }
     
@@ -23,8 +23,7 @@ public class Cachorro extends Animal {
     }
 
     public String toString() {
-        return "CACHORRO\n"
-        		+ "Nome: " + getNome() + ", Especie: " + getEspecie() + ", Raca: " + getRaca() + ", Genero: " + getGenero() + ", Idade: " + getIdadePet() + ", Porte: " + getAltura() + ", Situacao fucinho: " + getSituacaoFucinho() + "\n";
-    }
-    
+        return "CACHORRO\n" 
+         +  "Nome Dono: " + getNomeDono() + "Idade Dono: " + getIdadeDono() + "Nome: " + getNome() + ", Especie: " + getEspecie() + ", Raca: " + getRaca() + ", Genero: " + getGenero() + ", Idade: " + getIdadePet() + ", Porte: " + getAltura() + ", Situacao fucinho: " + getSituacaoFucinho() + "\n";
+    }    
 }
