@@ -2,17 +2,26 @@ package controler;
 
 import java.util.ArrayList;
 
+import models.Animal;
 import models.Vacina;
 
 public class ControleVacinas {
 	private ArrayList<Vacina> vacinas;
 	private int qtdVacinas;
 
+	public ArrayList<Vacina> getVacinas() {
+        return vacinas;
+    }
+	
+	public void setVacinas(ArrayList<Vacina> vacinas) {
+        this.vacinas = vacinas;
+    }
+	
 	public ControleVacinas(ControleDados dados){
 		this.vacinas = dados.getVacinas();
 		this.qtdVacinas = dados.getQtdVacinas();
 	}
-
+	
 	public String[] getNomeTipoVacinas() {
         String[] nomesVacinas = new String[qtdVacinas];
         for (int i = 0; i < qtdVacinas; i++) {

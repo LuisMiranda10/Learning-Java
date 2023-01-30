@@ -1,12 +1,14 @@
 package models;
 
+import java.util.ArrayList;
+
 public class Gato extends Animal {
 	private String pelagem;
 
 	// Construtor que recebe os atributos
 	public Gato(String nomeDono, int idadeDono, String nome, String especie, String genero, String raca, 
-			int idade,String altura, String pelagem) {
-		super(nomeDono, idadeDono, nome, especie, raca, genero, idade, altura);
+			int idade,String altura, String pelagem, ArrayList<Vacina> vacinas) {
+		super(nomeDono, idadeDono, nome, especie, raca, genero, idade, altura, vacinas);
 		this.pelagem = pelagem;
 	}
 

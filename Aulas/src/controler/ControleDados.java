@@ -36,6 +36,14 @@ public class ControleDados {
 	    return dados.getQtdVacinas();
     }
 	
+	public String[] getNomeVacinas() {
+        String[] nomeVacinas = new String[getQtdVacinas()];
+        for (int i = 0; i < getQtdVacinas(); i++) {
+            nomeVacinas[i] = dados.getVacinas().get(i).getTipoVacina();
+        }
+        return nomeVacinas;
+    }
+	
 	public int buscarAnimal(String nomePet) {
         for(int i = 0; i < dados.getQtdAnimais(); i++) {
             if(dados.getAnimais().get(i).getNome().equals(nomePet)) {
@@ -77,17 +85,17 @@ public class ControleDados {
         } else {
         	if(especie == "canina") {
         		System.out.println("Animal cadastrado com sucesso!");
-                Cachorro c = new Cachorro(nomeDono, idadeDono, nomePet, especie, generos, raca, idadePet, porte, caracteristicaAnimal);
+                Cachorro c = new Cachorro(nomeDono, idadeDono, nomePet, especie, generos, raca, idadePet, porte, caracteristicaAnimal, null);
                 dados.adicionarAnimal(c, null, null);
                 return true;
         	}else if(especie == "roedor") {
         		System.out.println("Animal cadastrado com sucesso!");
-                Coelho co = new Coelho(nomeDono, idadeDono, nomePet, especie, generos, raca, idadePet, porte, caracteristicaAnimal);
+                Coelho co = new Coelho(nomeDono, idadeDono, nomePet, especie, generos, raca, idadePet, porte, caracteristicaAnimal, null);
                 dados.adicionarAnimal(null, co, null);
                 return true;
         	}else if(especie == "felina") {
         		System.out.println("Animal cadastrado com sucesso!");
-                Gato g = new Gato(nomeDono, idadeDono, nomePet, especie, generos, raca, idadePet, porte, caracteristicaAnimal);
+                Gato g = new Gato(nomeDono, idadeDono, nomePet, especie, generos, raca, idadePet, porte, caracteristicaAnimal, null);
                 dados.adicionarAnimal(null, null, g);
                 return true;
         	}

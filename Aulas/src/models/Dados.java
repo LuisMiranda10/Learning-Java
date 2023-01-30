@@ -10,18 +10,22 @@ public class Dados {
 	
 	public void EncherDados() {
 		for(int i = 0; i < 5; i++) {
-			Cachorro cachorro = new Cachorro("Dono" + i, i,"Cachorro" + i, "canina" + i, "raca" + i, "genero" + i, i, "altura" + i, 
-			"situacao Focinho" + i);
-			Coelho coelho = new Coelho("Dono" + i, i,"Coelho" + i, "roedor" + i, "raca" + i, "genero" + i, i, "altura" + i, 
-					"situacao Dentes" + i);
-			Gato gato = new Gato("Dono" + i, i,"Gato" + i, "felina" + i, "raca" + i, "genero" + i, i, "altura" + i, 
-					"Pelagem" + i);
+			
 			Vacina vacina = new Vacina("Vacina" + i, "12/10/2022" + i, "14/10/2023" + i, "local" + i, "n lote" + i, "Doses" + i);
-	
+			vacinas.add(vacina);
+		}
+		
+		for (int i = 0; i < 5; i++) {
+			Cachorro cachorro = new Cachorro("Dono" + i, i, "Cachorro" + i, "canina" + i, "raca" + i, "genero" + i, i,
+					"altura" + i, "situacao Focinho" + i, vacinas);
+			Coelho coelho = new Coelho("Dono" + i, i, "Coelho" + i, "roedor" + i, "raca" + i, "genero" + i, i,
+					"altura" + i, "situacao Dentes" + i, vacinas);
+			Gato gato = new Gato("Dono" + i, i, "Gato" + i, "felina" + i, "raca" + i, "genero" + i, i, "altura" + i,
+					"Pelagem" + i, vacinas);
+			
 			animais.add(cachorro);
 			animais.add(coelho);
 			animais.add(gato);
-			vacinas.add(vacina);
 		}
 	}
 	

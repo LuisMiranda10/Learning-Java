@@ -150,6 +150,7 @@ public class TelaCadastroVacina implements ActionListener {
 			int index = dados.buscarVacina(tipoVacina, dataVacina);
 
 			if (addVacina) {
+				boolean verificar = dados.adicionarVacina(tipoVacina, dataVacina, dataDose, local, lote, doses);
 				new TelaListaAnimais(dados, indexAnimal);
 				tela.dispose();
 			} else {

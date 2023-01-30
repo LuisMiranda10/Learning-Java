@@ -29,8 +29,8 @@ public class TelaListaAnimais implements ActionListener{
 	private int indexVacina;
 	private String listaAnimais;
 	private JList<String> listaVacinas;
+	private String[] vacinas;
 	private JTextArea area;
-	
 	
 	public TelaListaAnimais(ControleDados dados, int index) {
 		this.dados = dados;
@@ -89,17 +89,19 @@ public class TelaListaAnimais implements ActionListener{
 		painelPerfilVacina.setLayout(null);
 		tela.add(painelPerfilVacina);
 		
-		//Lista de Vacinas
+		vacinas = dados.getNomeVacinas();
+
+		listaVacinas = new JList<String>(vacinas);
+
+		listaVacinas.setBounds(0, 0, 295, 330);
+		listaVacinas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		listaVacinas.setBackground(new Color(0, 0, 0, 0));
+		listaVacinas.setOpaque(false);
+		listaVacinas.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		
-//		listaVacinas = new JList<String>(cv.getVacinas().get(indexVacina).toString());
-//		listaVacinas.setBackground(new Color(0, 0, 0, 0));
-//		listaVacinas.setBounds(0, 0, 295, 330);
-//		listaVacinas.setOpaque(false);
-//		listaVacinas.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
-//		listaVacinas.addListSelectionListener((ListSelectionListener) this);	
+		painelPerfilVacina.add(listaVacinas);
 		
 		tela.add(painelPerfilVacina);
-//		painelPerfilVacina.add(listaVacinas);
 	}
 
 	public void tituloPet() {
@@ -167,7 +169,7 @@ public class TelaListaAnimais implements ActionListener{
 	}
 	
 	public void actionPerformed(ActionEvent ae) {
-		if ("AdicionarVacina" == ae.getActionCommand()) {
+		if ("AdicionarVacina" == ae.getActionCommand()) {		
 			 new TelaCadastroVacina(dados, indexAnimal);
 	         tela.dispose();
 		}else if ("EditarPet" == ae.getActionCommand()) {

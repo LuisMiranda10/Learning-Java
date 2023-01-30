@@ -26,8 +26,8 @@ public class ControleAnimais {
 			return qtdAnimais;
 		}
 		
-	public void setQtdAnimais(int qtdAlunos) {
-			this.qtdAnimais = qtdAlunos;
+	public void setQtdAnimais(int qtdAnimais) {
+			this.qtdAnimais = qtdAnimais;
 		}
 	
 	public String[] getNomeAnimais() {
@@ -44,6 +44,29 @@ public class ControleAnimais {
 	        else
 	            return animais.get(i).getNome();
 	    }
+	
+		public String[] getVacinasAnimal(int i) {
+
+			int qtdVacinasAnimal = animais.get(i).getVacinas().size();
+			String[] vacinas = new String[qtdVacinasAnimal];
+
+			for (int j = 0; j < qtdVacinasAnimal; j++) {
+				vacinas[j] = animais.get(i).getVacinas().get(j).getTipoVacina();
+			}
+			return vacinas;
+		}
+
+		public String[] getVacinas() {
+			String[] vacinas = new String[animais.size()];
+			for (int i = 0; i <= animais.size(); i++) {
+				if (animais.get(i).getVacinas() == null) {
+					return vacinas;
+				} else {
+					vacinas[i] = animais.get(i).getVacinas().get(i).getTipoVacina();
+				}
+			}
+			return vacinas;
+		}
 	
 	public String nomeDono(int i) {
 		return animais.get(i).getNomeDono();
