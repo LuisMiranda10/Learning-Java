@@ -18,6 +18,7 @@ public class TelaEditarPet implements ActionListener{
 	private static JRadioButton canina, felina, roedor;
 	private ControleDados dados;
 	private int indexAnimal;
+	String nomePetAntigo;
 	
 	JTextField TextoIdade;
 	JTextField TextoIdadeAnimal;
@@ -46,8 +47,10 @@ public class TelaEditarPet implements ActionListener{
 	
 	TelaEditarPet(ControleDados dados, int index){
 		this.dados = dados;
-		indexAnimal = index;
-		dados.removerAnimal(indexAnimal);
+		indexAnimal = index; 
+		 nomePetAntigo = dados.getAnimais().get(index).getNome();
+		 
+		//dados.removerAnimal(indexAnimal);
 		
 		tela = new JFrame("Tela de editar Pet!"); 
 		tela.setSize(660, 800);
@@ -243,16 +246,19 @@ public class TelaEditarPet implements ActionListener{
 			      int novaIdadePet = Integer.parseInt(TextoIdadeAnimal.getText());
 				  String novoPorte = (String) listaPorte.getSelectedItem(); 
 				  
-				  boolean add = dados.adicionarAnimal(nomeDonoNovo,  idadeDonoNovo, nomePetNovo, novaEspecie, novaRaca, novoPorte, novaIdadePet, novoGenero, novaCaracteristicaAnimal);
+				  int index = dados.buscarAnimal(nomePetAntigo);
 				  
-				  int index = dados.buscarAnimal(nomeDonoNovo);
+				  dados.getAnimais().get(indexAnimal).setNome(nomePetNovo);
+				  dados.getAnimais().get(indexAnimal).setNomeDono(nomeDonoNovo);
+				  dados.getAnimais().get(indexAnimal).setIdadeDono(idadeDonoNovo);
+				  dados.getAnimais().get(indexAnimal).setGenero(novoGenero);
+				  dados.getAnimais().get(indexAnimal).setEspecie(novaEspecie);
+				  dados.getAnimais().get(indexAnimal).setRaca(novaRaca);
+				  dados.getAnimais().get(indexAnimal).setIdadePet(novaIdadePet);
+				  dados.getAnimais().get(indexAnimal).setAltura(novoPorte);
 				  
-				  if(add){
 					new TelaListaAnimais(dados, index);  
 					tela.dispose();
-				  }else {
-					JOptionPane.showMessageDialog(null, "Dados não editados, tente novamente!");
-				  }
 				}
 		
 		if(felina.isSelected() == true && canina.isSelected() == false && roedor.isSelected() == false) {
